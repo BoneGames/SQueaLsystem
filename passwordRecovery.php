@@ -16,7 +16,6 @@
 	
 	$finduser = "SELECT email FROM users";
 	$finduserresult = mysqli_query($conn, $finduser);
-	$canmakeaccount = "";
 	
 	// If there are more than 0 rows
 	if(mysqli_num_rows($finduserresult) > 0)
@@ -28,11 +27,11 @@
 			if($row['email'] == $email)
 			{
 				echo "email";
+				return;
 			}
-			else
-			{
-				echo "There is no account associated with that email.";
-			}
+			
 		}
+		echo "failure";
+
 	}
 ?>
