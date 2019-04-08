@@ -47,10 +47,8 @@
 		if($makeuserresult)
 		{
 			echo "Success! You're the first user account to have been created!";
-			return;
 		} else {
 			echo "cant create first user";
-			return;
 		}
 	}
 
@@ -69,20 +67,15 @@
 					echo "That email address already has a registered account";
 					return;
 				}
-				else 
-				{
-					// Make User
-					$makeuser = "INSERT INTO users(username, email, password) VALUES('".$username."', '".$email."', '".$password."')";
-					$makeuserresult = mysqli_query($conn, $makeuser);
-					if($makeuserresult)
-					{
-						echo "Success! Your user account has been created.";
-						return;
-					} else {
-						echo "cant create user";
-						return;
-					}
-				}
+			}
+			$makeuser = "INSERT INTO users(username, email, password) VALUES('".$username."', '".$email."', '".$password."')";
+			$makeuserresult = mysqli_query($conn, $makeuser);
+			if($makeuserresult)
+			{
+				echo "Success! Your user account has been created.";
+				return;
+			} else {
+				echo "Error, cant create user";
 			}
 		}
 	} 
